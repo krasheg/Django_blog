@@ -1,10 +1,16 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect
+from .models import *
 
 
 # Create your views here.
 def index(request):
-    return HttpResponse('Application page')
+    posts = Women.objects.all()
+    return render(request, 'women/index.html', {'posts': posts, 'title': 'Main page'})
+
+
+def about(request):
+    return render(request, 'women/about.html', {'title': "About"})
 
 
 def categories(request, cat_id):

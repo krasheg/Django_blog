@@ -4,6 +4,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='home'),
-    path('categories/<int:cat_id>/', views.categories),
-    re_path(r'^archive/(?P<year>[0-9]{4})/', views.archive),
+    path('about/', views.about, name='about'),
+
 ]
