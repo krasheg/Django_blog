@@ -34,7 +34,7 @@ def main_menu():
 @register.inclusion_tag('women/list_posts.html')
 def show_posts(cat_selected=0):
     if cat_selected:
-        posts = Women.objects.filter(cat_id=cat_selected)
+        posts = Women.objects.filter(cat__slug=cat_selected)
     else:
         posts = Women.objects.all()
     return {'posts': posts}
